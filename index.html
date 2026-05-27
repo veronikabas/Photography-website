@@ -1,0 +1,792 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Veronika Photography</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    color:#2d2d2d;
+    background:#fff;
+    overflow-x:hidden;
+}
+
+img{
+    display:block;
+    width:100%;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+.container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+/* NAVIGATION */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    z-index:1000;
+
+    background:rgba(255,255,255,0.92);
+    backdrop-filter:blur(12px);
+
+    border-bottom:1px solid rgba(0,0,0,0.05);
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:22px 0;
+}
+
+.logo{
+    font-family:'Playfair Display',serif;
+    font-size:28px;
+    font-weight:600;
+}
+
+.nav-links{
+    display:flex;
+    gap:35px;
+}
+
+.nav-links a{
+    text-transform:uppercase;
+    font-size:14px;
+    letter-spacing:1px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#b78f7d;
+}
+
+/* HERO */
+
+.hero{
+    height:100vh;
+
+    background:
+    linear-gradient(
+        rgba(0,0,0,0.25),
+        rgba(0,0,0,0.25)
+    ),
+    url("images/hero.jpg");
+
+    background-size:cover;
+    background-position:center;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+}
+
+.hero-content{
+    color:white;
+}
+
+.hero-content h1{
+    font-family:'Playfair Display',serif;
+    font-size:78px;
+    margin-bottom:20px;
+}
+
+.hero-content p{
+    font-size:20px;
+    margin-bottom:35px;
+    font-weight:300;
+}
+
+.hero-button{
+    display:inline-block;
+
+    padding:15px 34px;
+
+    background:white;
+    color:#222;
+
+    border-radius:40px;
+
+    transition:.3s;
+}
+
+.hero-button:hover{
+    transform:translateY(-3px);
+}
+
+/* SECTION TITLES */
+
+.section-title{
+    text-align:center;
+    font-family:'Playfair Display',serif;
+    font-size:52px;
+    margin-bottom:80px;
+}
+
+/* PORTFOLIO */
+
+.portfolio{
+    padding:130px 0;
+}
+
+.portfolio-category{
+    margin-bottom:120px;
+}
+
+.category-header{
+    margin-bottom:40px;
+}
+
+.category-header h3{
+    font-family:'Playfair Display',serif;
+    font-size:42px;
+    margin-bottom:12px;
+}
+
+.category-header p{
+    color:#777;
+    line-height:1.8;
+    max-width:700px;
+}
+
+/* FEATURE IMAGE */
+
+.feature-image{
+    margin-bottom:20px;
+}
+
+.feature-image img{
+    height:700px;
+    object-fit:cover;
+    border-radius:18px;
+}
+
+/* MASONRY */
+
+.masonry{
+    column-count:3;
+    column-gap:18px;
+}
+
+.masonry img{
+    margin-bottom:18px;
+    border-radius:16px;
+    cursor:pointer;
+    transition:.3s;
+    break-inside:avoid;
+}
+
+.masonry img:hover{
+    transform:scale(1.02);
+}
+
+/* ABOUT */
+
+.about{
+    background:#faf8f6;
+    padding:130px 0;
+}
+
+.about-content{
+    max-width:850px;
+    margin:auto;
+    text-align:center;
+}
+
+.about-content h2{
+    font-family:'Playfair Display',serif;
+    font-size:52px;
+    margin-bottom:25px;
+}
+
+.about-content p{
+    line-height:2;
+    color:#555;
+}
+
+/* CONTACT */
+
+.contact{
+    padding:130px 0;
+}
+
+.contact-form{
+    max-width:700px;
+    margin:auto;
+}
+
+.contact-form input,
+.contact-form textarea{
+    width:100%;
+    padding:18px;
+    margin-bottom:18px;
+
+    border:1px solid #ddd;
+    border-radius:14px;
+
+    font-size:16px;
+    font-family:'Poppins',sans-serif;
+}
+
+.contact-form textarea{
+    min-height:180px;
+    resize:vertical;
+}
+
+.contact-form button{
+    width:100%;
+    border:none;
+
+    padding:18px;
+
+    background:#b78f7d;
+    color:white;
+
+    border-radius:40px;
+
+    cursor:pointer;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:50px 20px;
+    border-top:1px solid #eee;
+}
+
+.instagram-link{
+    display:inline-block;
+    margin-top:10px;
+    color:#b78f7d;
+}
+
+/* LIGHTBOX */
+
+.lightbox {
+    display: none;
+
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.9);
+
+    justify-content: center;
+    align-items: center;
+
+    z-index: 9999;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox img {
+    max-width: 90vw;
+    max-height: 90vh;
+
+    width: auto;
+    height: auto;
+
+    object-fit: contain;
+    display: block;
+}
+
+.close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+
+    color: white;
+    font-size: 50px;
+    cursor: pointer;
+
+    user-select: none;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+.hero-content h1{
+    font-size:52px;
+}
+
+.section-title{
+    font-size:40px;
+}
+
+.category-header h3{
+    font-size:34px;
+}
+
+.feature-image img{
+    height:450px;
+}
+
+.masonry{
+    column-count:2;
+}
+
+}
+
+@media(max-width:600px){
+
+.nav-links{
+    display:none;
+}
+
+.hero-content h1{
+    font-size:40px;
+}
+
+.hero-content p{
+    font-size:16px;
+}
+
+.masonry{
+    column-count:1;
+}
+
+/* hero photo hidden on mobile */
+.feature-image{
+    display:none;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="container navbar">
+
+        <div class="logo">
+            Veronika Photography
+        </div>
+
+        <nav class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+
+    </div>
+
+</header>
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <h1>Photography with Soul</h1>
+
+        <p>
+            Capturing honest moments and timeless memories
+        </p>
+
+        <a href="#contact" class="hero-button">
+            Book a Shoot
+        </a>
+
+    </div>
+
+</section>
+
+<!-- PORTFOLIO -->
+
+<section class="portfolio" id="portfolio">
+
+<div class="container">
+
+<h2 class="section-title">
+Portfolio
+</h2>
+
+<!-- AUTUMN VIBES -->
+
+<div class="portfolio-category">
+
+<div class="category-header">
+
+<h3>Autumn Vibes</h3>
+
+<p>
+Golden leaves, soft light and cozy moments.
+A collection inspired by warm autumn evenings
+and natural beauty.
+</p>
+
+</div>
+
+<div class="feature-image">
+  <img
+    src="images/autumn1.jpg"
+    style="object-fit: cover; object-position: center 40%;"
+    onclick="openLightbox(this.src)">
+</div>
+
+<div class="masonry">
+
+<img src="images/autumn1.jpg" onclick="openLightbox(this.src)">
+<img src="images/autumn2.jpg" onclick="openLightbox(this.src)">
+<img src="images/autumn3.jpg" onclick="openLightbox(this.src)">
+<img src="images/autumn4.jpg" onclick="openLightbox(this.src)">
+<img src="images/autumn5.jpg" onclick="openLightbox(this.src)">
+<img src="images/autumn6.jpg" onclick="openLightbox(this.src)">
+<img src="images/autumn7.jpg" onclick="openLightbox(this.src)">
+<img src="images/autumn8.jpg" onclick="openLightbox(this.src)">
+<img src="images/autumn9.jpg" onclick="openLightbox(this.src)">
+
+</div>
+
+</div>
+
+<!-- IN THE FIELDS -->
+
+<div class="portfolio-category">
+
+<div class="category-header">
+
+<h3>In the Fields</h3>
+
+<p>
+Freedom, nature and warm summer evenings.
+Moments surrounded by open landscapes
+and beautiful natural light.
+</p>
+
+</div>
+
+<div class="feature-image">
+
+<img
+src="images/fields1.jpg"
+style="object-position:center center;"
+onclick="openLightbox(this.src)">
+
+</div>
+
+<div class="masonry">
+
+<img src="images/fields1.jpg" onclick="openLightbox(this.src)">
+<img src="images/fields2.jpg" onclick="openLightbox(this.src)">
+<img src="images/fields3.jpg" onclick="openLightbox(this.src)">
+<img src="images/fields4.jpg" onclick="openLightbox(this.src)">
+<img src="images/fields5.jpg" onclick="openLightbox(this.src)">
+<img src="images/fields6.jpg" onclick="openLightbox(this.src)">
+<img src="images/fields7.jpg" onclick="openLightbox(this.src)">
+<img src="images/fields8.jpg" onclick="openLightbox(this.src)">
+<img src="images/fields9.jpg" onclick="openLightbox(this.src)">
+
+</div>
+
+</div>
+
+<!-- CHRISTMAS VIBES -->
+
+<div class="portfolio-category">
+
+<div class="category-header">
+
+<h3>Christmas Vibes</h3>
+
+<p>
+Twinkling lights, festive spirit and winter magic.
+Cozy memories filled with warmth, candles
+and the atmosphere of the holiday season.
+</p>
+
+</div>
+
+<div class="feature-image">
+
+<img
+src="images/joulutori6.jpg"
+style="object-position:center center;"
+onclick="openLightbox(this.src)">
+
+</div>
+
+<div class="masonry">
+
+<img src="images/joulutori1.jpg" onclick="openLightbox(this.src)">
+<img src="images/joulutori2.jpg" onclick="openLightbox(this.src)">
+<img src="images/joulutori3.jpg" onclick="openLightbox(this.src)">
+<img src="images/joulutori4.jpg" onclick="openLightbox(this.src)">
+<img src="images/joulutori5.jpg" onclick="openLightbox(this.src)">
+<img src="images/joulutori6.jpg" onclick="openLightbox(this.src)">
+<img src="images/joulutori7.jpg" onclick="openLightbox(this.src)">
+<img src="images/joulutori8.jpg" onclick="openLightbox(this.src)">
+<img src="images/joulutori9.jpg" onclick="openLightbox(this.src)">
+
+</div>
+
+</div>
+
+<!-- CHRISTMAS MARKET -->
+
+<div class="portfolio-category">
+
+<div class="category-header">
+
+<h3>Christmas Market</h3>
+
+<p>
+Holiday traditions, festive lights and magical winter evenings.
+A collection full of warmth, joy and seasonal atmosphere.
+</p>
+
+</div>
+
+<div class="feature-image">
+
+<img
+src="images/market3.jpg"
+style="object-fit: cover; object-position: center 20%;"
+onclick="openLightbox(this.src)">
+
+</div>
+
+<div class="masonry">
+
+<img src="images/market1.jpg" onclick="openLightbox(this.src)">
+<img src="images/market2.jpg" onclick="openLightbox(this.src)">
+<img src="images/market3.jpg" onclick="openLightbox(this.src)">
+<img src="images/market4.jpg" onclick="openLightbox(this.src)">
+<img src="images/market5.jpg" onclick="openLightbox(this.src)">
+<img src="images/market6.jpg" onclick="openLightbox(this.src)">
+<img src="images/market7.jpg" onclick="openLightbox(this.src)">
+<img src="images/market8.jpg" onclick="openLightbox(this.src)">
+<img src="images/market9.jpg" onclick="openLightbox(this.src)">
+
+</div>
+
+</div>
+
+<!-- WINTER IN THE CITY -->
+
+<div class="portfolio-category">
+
+<div class="category-header">
+
+<h3>Winter in the City</h3>
+
+<p>
+Snow-covered streets, city lights and quiet winter stories.
+Capturing beauty in everyday urban moments.
+</p>
+
+</div>
+
+<div class="feature-image">
+
+<img
+src="images/winter8.jpg"
+style="object-fit: cover; object-position: center 20%;"
+onclick="openLightbox(this.src)">
+
+</div>
+
+<div class="masonry">
+
+<img src="images/winter1.jpg" onclick="openLightbox(this.src)">
+<img src="images/winter2.jpg" onclick="openLightbox(this.src)">
+<img src="images/winter3.jpg" onclick="openLightbox(this.src)">
+<img src="images/winter4.jpg" onclick="openLightbox(this.src)">
+<img src="images/winter5.jpg" onclick="openLightbox(this.src)">
+<img src="images/winter6.jpg" onclick="openLightbox(this.src)">
+<img src="images/winter7.jpg" onclick="openLightbox(this.src)">
+<img src="images/winter8.jpg" onclick="openLightbox(this.src)">
+<img src="images/winter9.jpg" onclick="openLightbox(this.src)">
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section class="about" id="about">
+
+<div class="container">
+
+<div class="about-content">
+
+<h2>About Me</h2>
+
+<p>
+Hi, I'm Veronika — a lifestyle and portrait photographer
+passionate about capturing authentic emotions, natural light
+and meaningful moments.
+
+My goal is to create timeless photographs that tell your story
+and preserve memories you'll cherish for years to come.
+
+Whether it's a portrait session, couple shoot, family session
+or seasonal photography, I strive to make every photoshoot
+relaxed, enjoyable and personal.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+<div class="container">
+
+<h2 class="section-title">
+Book a Shoot
+</h2>
+
+<form
+class="contact-form"
+action="https://formspree.io/f/xdajwvkq"
+method="POST">
+
+<input
+type="text"
+name="name"
+placeholder="Your Name"
+required>
+
+<input
+type="email"
+name="email"
+placeholder="Your Email"
+required>
+
+<textarea
+name="message"
+placeholder="Tell me about your photoshoot..."
+required></textarea>
+
+<button type="submit">
+Send Message
+</button>
+
+</form>
+
+</div>
+
+</section>
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox">
+
+<span
+class="close-lightbox"
+onclick="closeLightbox()">
+&times;
+</span>
+
+<img
+id="lightbox-image"
+src=""
+alt="Photo">
+
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+
+<p>
+© 2026 Veronika Photography
+</p>
+
+<a
+href="https://instagram.com/yourinstagram"
+target="_blank"
+class="instagram-link">
+
+Follow me on Instagram
+
+</a>
+
+</footer>
+
+<!-- JAVASCRIPT -->
+
+<script>
+
+function openLightbox(imageSrc){
+
+document.getElementById("lightbox").style.display = "flex";
+
+document.getElementById("lightbox-image").src = imageSrc;
+
+}
+
+function closeLightbox(){
+
+document.getElementById("lightbox").style.display = "none";
+
+}
+
+document.getElementById("lightbox").addEventListener(
+"click",
+function(event){
+
+if(event.target.id === "lightbox"){
+
+closeLightbox();
+
+}
+
+}
+);
+
+</script>
+
+</body>
+</html>
